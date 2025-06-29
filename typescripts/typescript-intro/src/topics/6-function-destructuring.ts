@@ -35,7 +35,8 @@ export interface Product {
 // 2. Creamos un producto llamado phone, con sus propiedades
 const phone: Product = {
     description: 'Nokia A1',
-    price: 150.0
+    price: 300,
+
 }
 
 // 3. Creamos otro producto llamado tablet, también con sus propiedades
@@ -46,13 +47,13 @@ const tablet: Product = {
 
 // 4. Definimos una interfaz para agrupar los datos necesarios para calcular el impuesto
 //    Incluye el porcentaje de impuesto y el arreglo de productos
-interface TaxCalculationOptions {
+ interface TaxCalculationOptions {
   tax: number; // Porcentaje de impuesto a aplicar (por ejemplo, 0.15 para 15%)
   products: Product[]; // Lista de productos a los que se les aplicará el impuesto
 }
 
 // 5. Esta función recibe un objeto con productos y el impuesto, y devuelve el total y el impuesto calculado
-function TaxCalculation( options : TaxCalculationOptions):[number, number]{
+export function taxCalculation( options : TaxCalculationOptions):[number, number]{
   let total = 0;
   // Desestructuramos el objeto recibido para obtener los productos y el impuesto
   const { products, tax } = options;
@@ -72,7 +73,7 @@ const shoppingCart = [phone, tablet];
 const tax = 0.15;
 
 // 8. Llamamos a la función TaxCalculation y desestructuramos el resultado en total y totalTaxt
-const [total, totalTaxt] = TaxCalculation({
+const [total, totalTaxt] = taxCalculation({
   products : shoppingCart,
   tax : tax,
 });
@@ -82,4 +83,4 @@ console.log('Total: ', total);
 console.log('Tax: ', totalTaxt);
 
 // 10. Exportación vacía para tratar el archivo como módulo y evitar conflictos de variables globales
-export {}
+// export {}
