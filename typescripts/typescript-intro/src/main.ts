@@ -5,7 +5,7 @@ import './style.css';
 // import './topics/5-basic-destructuring';
 // import './topics/6-function-destructuring';
 // import './topics/7-import-export';
-import './topics/8-clases';
+// import './topics/8-clases';
 
 const  app = document.querySelector<HTMLDivElement>('#app')!;
 
