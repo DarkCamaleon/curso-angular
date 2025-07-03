@@ -1,5 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, signal } from '@angular/core';
+
 
 
 interface Character {
@@ -10,27 +10,22 @@ interface Character {
 }
 
 @Component({
+  selector : 'dragonball-super',
   imports: [],
-  templateUrl: './dragonball-page.html',
+  templateUrl: './dragonball-super-page.html',
 
 })
-export class DragonballPage {
+export class DragonballSuperPage {
 
   name = signal('');
   power = signal(0);
 
   characters = signal<Character[]>([
     { id : 1, name : 'goku' , power : 9001},
-    // { id : 2, name : 'vegeta' , power : 4000},
-    // { id : 3, name : 'gohan' , power : 5000},
-    // { id : 4, name : 'yamcha' , power : 500},
+    { id : 2, name : 'vegeta' , power : 4000},
+
   ]);
 
-//   powerClasses = computed(() => {
-//     return {
-//       'text-danger' : true,
-//     }
-//   });
 addCharacter (){
   console.log(this.name() , this.power());
 
