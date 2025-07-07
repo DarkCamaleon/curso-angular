@@ -1,0 +1,22 @@
+<!-- Mensaje de prueba para verificar que el componente funciona -->
+<p>dragonball-page works!</p>
+<hr>
+
+<section class="row">
+
+
+  <!-- Columna para el formulario de agregar personaje -->
+  <div class="col-12 col-sm-6">
+    <dragonball-add-character
+     (newCharacter)="dragonballService.addCharacter($event)"
+   />
+  </div>
+
+  <!-- Columna para mostrar la lista de personajes -->
+  <div class="col-12 col-sm-6">
+    <!-- Componente que recibe la lista de personajes como input -->
+    <dragonball-character-list
+    listName = "listado de personajes"
+    [characters]="dragonballService.characters()" />
+  </div>
+</section>

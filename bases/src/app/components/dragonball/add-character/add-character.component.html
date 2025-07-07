@@ -1,0 +1,20 @@
+<p>add-character works!</p>
+
+<!-- Título que muestra los valores actuales de nombre y poder -->
+<h3>Agregar : {{ name() }} - {{ power() }} </h3>
+<!-- Input para el nombre del personaje.
+         [value]="name()" vincula el valor de la señal name.
+         (input)="name.set(txtName.value)" actualiza la señal al escribir.
+         #txtName es una referencia local al input. -->
+<input type="text" class="form-control" placeholder="nombre" [value]="name()" (input)="name.set(txtName.value)"
+  #txtName>
+<!-- Input para el poder del personaje.
+         [value]="power()" vincula el valor de la señal power.
+         (input)="power.set(+txtPower.value)" actualiza la señal al escribir (conversión a número).
+         #txtPower es una referencia local al input. -->
+<input type="number" class="form-control mt-2" placeholder="poder" [value]="power()"
+  (input)="power.set(+txtPower.value)" #txtPower>
+<!-- Botón para agregar el personaje, llama a addCharacter() al hacer clic -->
+<button (click)="addCharacter()" class="mt-2 btn btn-primary"> Agregar</button>
+
+
