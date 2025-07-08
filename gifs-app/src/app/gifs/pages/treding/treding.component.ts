@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core'; // Importa Component para definir el componente y signal para crear señales reactivas.
+import { Component, inject, signal } from '@angular/core'; // Importa Component para definir el componente y signal para crear señales reactivas.
 import { GifListComponent } from '../../components/gif-list/gif-list.component'; // Importa el componente de lista de gifs.
+import { GifService } from '../../services/gifs.service';
 
 // Las signals en Angular permiten manejar datos de forma reactiva.
 // Si el array imageUrls cambiara, la vista se actualizaría automáticamente.
@@ -29,4 +30,6 @@ export default class TredingComponent {
   // Esto permite un flujo de datos unidireccional y reactivo (padre → hijo).
   gifs = signal(imageUrls);
   // Buenas prácticas: separar la lógica en componentes pequeños y usar tipado estricto mejora el mantenimiento y la escalabilidad.
+
+  gifService = inject( GifService );
 }
