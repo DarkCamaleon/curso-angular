@@ -2,7 +2,7 @@
     <!-- @for es una directiva Angular para iterar de forma eficiente y reactiva sobre listas.
          Si gifs cambia, la lista se actualiza automáticamente en la vista. -->
     @for (gif of gifs(); track gif) {
-        <gif-list-item [imageUrl]="gif"/>
+        <gif-list-item [imageUrl]="gif.url"/>
     }
 </div>
 
