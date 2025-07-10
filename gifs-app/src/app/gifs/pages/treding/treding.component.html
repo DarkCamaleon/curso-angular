@@ -1,4 +1,10 @@
 <section class="py-5">
+  <!-- Sección principal con padding vertical (py-5) -->
   <!-- Usa el componente gif-list y le pasa la señal gifs como input -->
   <gif-list [gifs]="gifService.trendingGifs()"/>
+  <!--
+    gif-list: componente encargado de mostrar la lista de gifs
+    [gifs]: se le pasa como input el resultado de la función trendingGifs() del servicio gifService
+    trendingGifs(): método que retorna los gifs en tendencia
+  -->
 </section>
