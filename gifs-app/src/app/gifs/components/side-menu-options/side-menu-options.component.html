@@ -1,35 +1,45 @@
-
 <!-- bg-blue-800 -->
 <div id="nav" class="w-full px-6">
+  <!-- Contenedor principal del menú lateral con padding horizontal -->
 
+  <!-- Primer bloque: opciones principales del menú -->
+  <!-- Recorre el arreglo menuOptions y genera un enlace por cada opción -->
   @for ( item of menuOptions; track item.route){
-    <a [routerLink] = "item.route" routerLinkActive="bg-blue-800"
-      class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/5 transition ease-linear duration-150">
+    <a [routerLink]="item.route" routerLinkActive="bg-blue-800"
+      class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
+      <!-- Enlace que navega a la ruta definida en item.route.
+           - routerLinkActive aplica fondo azul cuando la ruta está activa.
+           - Clases para estilos visuales y animaciones. -->
       <div>
-        <!-- <i class="{{  item.icon }}"></i> -->
-        <i [class]=" item.icon "></i>
+        <!-- Icono de la opción, usando la clase definida en item.icon -->
+        <i [class]="item.icon"></i>
       </div>
       <div class="flex flex-col">
+        <!-- Etiqueta principal de la opción -->
         <span class="text-lg font-bold leading-5 text-white">{{ item.label }}</span>
+        <!-- Sub-etiqueta, visible solo en pantallas medianas en adelante -->
         <span class="text-sm text-white/50 hidden md:block">{{ item.subLabel }}</span>
       </div>
     </a>
-
   }
 
-  @for ( key of gifService.searchHistoryKeys() ; track key){
-    <a [routerLink] = "['/dashboard/history', key]"
-    routerLinkActive="bg-blue-800"
-    class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/5 transition ease-linear duration-150">
-    <div>
-      <!-- <i class="{{  item.icon }}"></i> -->
-      <i class="fa-solid fa-clock-rotate-left"></i>
-    </div>
-    <div class="flex flex-col">
-      <span class="text-lg font-bold leading-5 text-white">{{ key }}</span>
-
-    </div>
-  </a>
+  <!-- Segundo bloque: historial de búsquedas -->
+  <!-- Recorre las claves del historial de búsqueda y genera un enlace por cada término buscado -->
+  @for ( key of gifService.searchHistoryKeys(); track key){
+    <a [routerLink]="['/dashboard/history', key]"
+      routerLinkActive="bg-blue-800"
+      class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
+      <!-- Enlace que navega a la ruta de historial con el término de búsqueda como parámetro.
+           - routerLinkActive aplica fondo azul cuando la ruta está activa.
+           - Clases para estilos visuales y animaciones. -->
+      <div>
+        <!-- Icono fijo para historial de búsquedas -->
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <div class="flex flex-col">
+        <!-- Muestra el término de búsqueda (key) como etiqueta principal -->
+        <span class="text-lg font-bold leading-5 text-white">{{ key }}</span>
+      </div>
+    </a>
   }
-
 </div>

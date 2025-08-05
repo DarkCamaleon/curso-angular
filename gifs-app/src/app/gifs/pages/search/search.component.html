@@ -1,15 +1,23 @@
-
-
+<!-- Título principal de la página de búsqueda -->
 <h2 class="text-2xl font-bold mt-5"> Buscar Gifs</h2>
+<!-- Subtítulo explicativo sobre el tipo de búsqueda -->
 <h3 class="text-sm text-gray-500"> Buscar Gifs por nombre, descripcion o tags</h3>
 
+<!-- Sección que contiene el input de búsqueda -->
 <section class="flex flex-col gap-4">
+  <!-- Input de texto para escribir el término de búsqueda.
+       - Tiene estilos de margen, borde y padding.
+       - Al presionar Enter, ejecuta el método onSearch con el valor del input.
+       - #txtSearch crea una referencia local al input para acceder a su valor desde el template. -->
   <input type="text" placeholder="Buscar Gifs" class="mt-3 border border-gray-300 rounded-md p-2"
-  (keyup.enter)="onSearch(txtSearch.value)"
-  #txtSearch>
+    (keyup.enter)="onSearch(txtSearch.value)"
+    #txtSearch>
 </section>
 
+<!-- Sección donde se muestra la lista de gifs encontrados -->
 <section class="py-5">
+  <!-- Usa el componente gif-list y le pasa el resultado de la búsqueda como input.
+       - [gifs]="gifs()" enlaza la signal o variable gifs del componente TypeScript. -->
   <gif-list [gifs]="gifs()"></gif-list>
 
 </section>
